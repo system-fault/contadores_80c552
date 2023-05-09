@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.0.0   CONTADORES80C552                                                  05/09/2023 14:59:16 PAGE 1   
+C51 COMPILER V9.60.0.0   CONTADORES80C552                                                  05/09/2023 21:14:08 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE CONTADORES80C552
@@ -8,11 +8,69 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE contadores80c552.c OPTIMIZE(8,SP
 
 line level    source
 
-   1          #include <reg552.h>
+   1          /**
+   2           * *********************************************
+   3           * 
+   4           * Este codigo es para probar y configurar el TR0 o TR1 del 80c552
+   5           * 
+   6           * configuraremos el TR0 en modo 01 (0) contador de 13 bits
+   7           * Contara hasta cinco y cambiara el estado del P0, cunado llegue a 10, volvera a 
+   8           * cambiar P0 y reiniciara el contador.
+   9           * 
+  10           * 
+  11           * 
+  12           * *********************************************/
+  13          
+  14          //Para los pulsos del contador se utiliza el pin T0 P3_4
+  15          //No se usa el TF del timer
+  16          
+  17          #include <reg552.h>
+  18          
+  19          
+  20          
+  21          void configuracion (void);
+  22          
+  23          
+  24          void main (void)
+  25          {
+  26   1        configuracion();
+  27   1        
+  28   1        
+  29   1        
+  30   1        while(1)
+  31   1        {
+  32   2          
+  33   2          if (TL0 == 5)   //Espera hasta que el valor del contador es 5
+  34   2          {
+  35   3            P1 = ~P1;
+  36   3      
+  37   3          }
+  38   2          
+  39   2          if (TL0 == 0x0A)  //Espera hasta que el valor del contador es 10
+  40   2          {
+  41   3            P1 = ~P1;;
+  42   3            TL0 = 0x00;
+  43   3            TH0 = 0x00;
+  44   3          }
+  45   2        }
+  46   1      }
+  47          
+  48          void configuracion (void)
+  49          {
+  50   1        
+  51   1        
+  52   1        P1 = 0x00;
+  53   1        
+  54   1        TMOD = TMOD | 0x04; //Configura el timer0 como contador 13 bits 0000 0100
+C51 COMPILER V9.60.0.0   CONTADORES80C552                                                  05/09/2023 21:14:08 PAGE 2   
+
+  55   1        TR0 = 1; // Arranca el TR0, siempre hay que ponerlo en marcha, no importa el Tipo C/T o modo 00,01,10,11
+  56   1      
+  57   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   ----    ----
+   CODE SIZE        =     38    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
