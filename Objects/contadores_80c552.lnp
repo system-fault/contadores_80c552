@@ -1,0 +1,3 @@
+".\Objects\contadores80c552.obj" 
+TO ".\Objects\contadores_80c552" 
+PRINT(".\Listings\contadores_80c552.m51") RAMSIZE(256) 

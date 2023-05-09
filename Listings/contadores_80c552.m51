@@ -1,0 +1,48 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/09/2023  14:59:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\contadores80c552.obj TO .\Objects\contadores_80c552 PRINT (.\Listings\contadores_8
+>> 0c552.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\contadores80c552.obj (CONTADORES80C552)
+
+
+LINK MAP OF MODULE:  .\Objects\contadores_80c552 (CONTADORES80C552)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\contadores_80c552 (CONTADORES80C552)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\contadores_80c552 (CONTADORES80C552)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CONTADORES80C552
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  -------         ENDMOD        CONTADORES80C552
+
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0000H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=0.0 xdata=0 code=0
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
