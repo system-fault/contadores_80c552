@@ -1,18 +1,76 @@
-C51 COMPILER V9.60.0.0   CONTADORES80C552                                                  05/09/2023 14:59:16 PAGE 1   
+C51 COMPILER V9.60.0.0   CONTADORES80C552                                                  05/09/2023 20:12:47 PAGE 1   
 
 
 C51 COMPILER V9.60.0.0, COMPILATION OF MODULE CONTADORES80C552
 OBJECT MODULE PLACED IN .\Objects\contadores80c552.obj
-COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE contadores80c552.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
-                    -istings\contadores80c552.lst) TABS(2) OBJECT(.\Objects\contadores80c552.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE contadores80c552.c OPTIMIZE(8,SPEED) BROWSE NOAREGS DEBUG OBJECTEXTEND P
+                    -RINT(.\Listings\contadores80c552.lst) TABS(2) OBJECT(.\Objects\contadores80c552.obj)
 
 line level    source
 
-   1          #include <reg552.h>
+   1          /**
+   2           * *********************************************
+   3           * 
+   4           * Este codigo es para probar y configurar el TR0 o TR1 del 80c552
+   5           * 
+   6           * configuraremos el TR0 en modo 11 (0) contador de 8 bits
+   7           * Contara hasta 10 y cambiara el estado del P0, lo hara vigilando el Flag del contador
+   8           * 
+   9           * 
+  10           * 
+  11           * *********************************************/
+  12          
+  13          #include <reg552.h>
+  14          
+  15          
+  16          void configuracion (void);
+  17          
+  18          
+  19          
+  20          void main (void)
+  21          {
+  22   1          configuracion();
+  23   1      
+  24   1          while (1)
+  25   1          {
+  26   2      
+  27   2              while(TF0 == 0);  //Esperamos a que el flag este a 1 para hacer cambios y cargar de nuevo el conta
+             -dor
+  28   2              P0 = ~P0;
+  29   2              TF0 = 0;
+  30   2              TL0 = 0xF6;
+  31   2      
+  32   2          }
+  33   1          
+  34   1      }
+  35          
+  36          
+  37          //DEFINICIONES FUNCIONES
+  38          
+  39          
+  40          void configuracion ()
+  41          {
+  42   1          //Configuramos TMOD en modo 8bits 11 ----- 0000(TR1)desactivado 0111(TR0) contador 8 bit sin auto reca
+             -rga
+  43   1          TMOD = TMOD | 0x07;
+  44   1      
+  45   1          //Cargamos el valor de TL0 con 0xF6 para que cuando llegue a contar 10 se levante el flag
+  46   1          TL0 = 0xF6;
+  47   1          //Encedemos en contador
+  48   1          TR0 = 1;
+  49   1        
+  50   1          P0 = 0x00;
+  51   1      }
+  52          
+C51 COMPILER V9.60.0.0   CONTADORES80C552                                                  05/09/2023 20:12:47 PAGE 2   
+
+  53          
+  54          
+  55          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   ----    ----
+   CODE SIZE        =     28    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/09/2023  14:59:16  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/09/2023  20:12:47  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -11,6 +11,7 @@ MEMORY MODEL: SMALL
 
 INPUT MODULES INCLUDED:
   .\Objects\contadores80c552.obj (CONTADORES80C552)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
 
 
 LINK MAP OF MODULE:  .\Objects\contadores_80c552 (CONTADORES80C552)
@@ -18,6 +19,17 @@ LINK MAP OF MODULE:  .\Objects\contadores_80c552 (CONTADORES80C552)
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
             -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0010H     UNIT         ?PR?MAIN?CONTADORES80C552
+            CODE    0810H     000CH     UNIT         ?PR?CONFIGURACION?CONTADORES80C552
+            CODE    081CH     000CH     UNIT         ?C_C51STARTUP
 
 
 
@@ -27,6 +39,12 @@ OVERLAY MAP OF MODULE:   .\Objects\contadores_80c552 (CONTADORES80C552)
 SEGMENT
   +--> CALLED SEGMENT
 ---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?CONTADORES80C552
+
+?PR?MAIN?CONTADORES80C552
+  +--> ?PR?CONFIGURACION?CONTADORES80C552
+
 
 
 SYMBOL TABLE OF MODULE:  .\Objects\contadores_80c552 (CONTADORES80C552)
@@ -36,13 +54,42 @@ SYMBOL TABLE OF MODULE:  .\Objects\contadores_80c552 (CONTADORES80C552)
 
   -------         MODULE        CONTADORES80C552
   C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0800H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+  B:0088H.5       PUBLIC        TF0
+  D:008AH         PUBLIC        TL0
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/09/2023  20:12:47  PAGE 2
+
+
+  B:0088H.4       PUBLIC        TR0
+  C:0810H         PUBLIC        configuracion
+  -------         PROC          MAIN
+  C:0800H         LINE#         20
+  C:0800H         LINE#         21
+  C:0800H         LINE#         22
+  C:0803H         LINE#         24
+  C:0803H         LINE#         25
+  C:0803H         LINE#         27
+  C:0806H         LINE#         28
+  C:0809H         LINE#         29
+  C:080BH         LINE#         30
+  C:080EH         LINE#         32
+  -------         ENDPROC       MAIN
+  -------         PROC          CONFIGURACION
+  C:0810H         LINE#         40
+  C:0810H         LINE#         41
+  C:0810H         LINE#         43
+  C:0813H         LINE#         46
+  C:0816H         LINE#         48
+  C:0818H         LINE#         50
+  C:081BH         LINE#         51
+  -------         ENDPROC       CONFIGURACION
   -------         ENDMOD        CONTADORES80C552
 
-*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
-
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0000H BYTE ( 0%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001CH BYTE ( 1%) *
 ******************************************************************************
 
-Program Size: data=0.0 xdata=0 code=0
-LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
+Program Size: data=9.0 xdata=0 code=43
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

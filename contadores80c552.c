@@ -3,7 +3,7 @@
  * 
  * Este codigo es para probar y configurar el TR0 o TR1 del 80c552
  * 
- * configuraremos el TR0 en modo 10 (0) contador de 8 bits
+ * configuraremos el TR0 en modo 11 (0) contador de 8 bits
  * Contara hasta 10 y cambiara el estado del P0, lo hara vigilando el Flag del contador
  * 
  * 
@@ -11,6 +11,8 @@
  * *********************************************/
 
 #include <reg552.h>
+
+//PARA ACTIVAR LOS PULSOS SE USA EL PIN ASOCIADO AL TIMER 0 P3_4 T0
 
 
 void configuracion (void);

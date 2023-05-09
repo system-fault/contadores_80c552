@@ -26,9 +26,9 @@
     <ToolsetNumber>0x0</ToolsetNumber>
     <ToolsetName>MCS-51</ToolsetName>
     <TargetOption>
-      <CLK51>30000000</CLK51>
+      <CLK51>11059200</CLK51>
       <OPTTT>
-        <gFlags>0</gFlags>
+        <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
         <RunSim>1</RunSim>
         <RunTarget>0</RunTarget>
@@ -116,7 +116,7 @@
         <sRSysVw>1</sRSysVw>
         <tRSysVw>1</tRSysVw>
         <sRunDeb>0</sRunDeb>
-        <sLrtime>0</sLrtime>
+        <sLrtime>1</sLrtime>
         <bEvRecOn>1</bEvRecOn>
         <bSchkAxf>0</bSchkAxf>
         <bTchkAxf>0</bTchkAxf>
@@ -133,19 +133,33 @@
         <tIfile></tIfile>
         <pMon></pMon>
       </DebugOpt>
+      <TargetDriverDllRegistry>
+        <SetRegEntry>
+          <Number>0</Number>
+          <Key>DLGDP51</Key>
+          <Name>(98=-1,-1,-1,-1,0)(82=623,100,831,215,1)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=621,216,829,331,1)(5009=-1,-1,-1,-1,0)(5010=-1,-1,-1,-1,0)(80=-1,-1,-1,-1,0)(91=835,98,1045,373,1)(92=-1,-1,-1,-1,0)(2006=-1,-1,-1,-1,0)(2007=-1,-1,-1,-1,0)(5012=-1,-1,-1,-1,0)(3005=-1,-1,-1,-1,0)(5015=-1,-1,-1,-1,0)(103=-1,-1,-1,-1,0)(102=-1,-1,-1,-1,0)</Name>
+        </SetRegEntry>
+      </TargetDriverDllRegistry>
       <Breakpoint/>
+      <WatchWindow1>
+        <Ww>
+          <count>0</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>TL0,0x0A</ItemText>
+        </Ww>
+      </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>0</aLwin>
+        <aLwin>1</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
         <aPa>0</aPa>
-        <viewmode>0</viewmode>
+        <viewmode>1</viewmode>
         <vrSel>0</vrSel>
         <aSym>0</aSym>
         <aTbox>0</aTbox>
@@ -181,7 +195,7 @@
 
   <Group>
     <GroupName>Source Group 1</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
